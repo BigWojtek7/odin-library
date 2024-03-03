@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
-</head>
-<body>
-  
-  <div class="container">
-    <h1>My Books</h1>
-    <div class="table">
-      <table class="table">
-        <caption>My Book's Library</caption>
-        <thead>
-          <tr>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Number of Pages</th>
-            <th>is Read?</th>
-          </tr>
-        </thead>
-        <tbody class="table-rows">
-        </tbody>
-      </table>
-    </div>
-    <div class="modal">
-      <dialog>
-        <form id="get-book" method="dialog">
-          <label for="title">Title</label>
-          <input id="title" type="text" name="title">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Books</h1>
+      <div class="table">
+        <table class="table">
+          <caption>My Book's Library</caption>
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>Number of Pages</th>
+              <th>is Read?</th>
+            </tr>
+          </thead>
+          <tbody class="table-rows">
+          </tbody>
+        </table>
+      </div>
+      <div class="modal">
+        <dialog>
+          <form id="get-book" method="dialog">
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" required>
 
-          <label for="author">Author</label>
-          <input id="author" type="text" name="author">
+            <label for="author">Author:</label>
+            <input id="author" type="text" name="author" required>
 
-          <label for="pages">Number of Pages</label>
-          <input id="pages" type="text" name="pages">
-          
-          <fieldset>
-            <legend>is the book read?</legend>
+            <label for="pages">Number of Pages:</label>
+            <input id="pages" type="text" name="pages" required>
             
-            <input id="yes" type="radio" name="is-read" value="Yes" checked>
-            <label for="yes">Yes</label>
+            <fieldset>
+              <legend>Is the book read?</legend>
+              
+              <input id="yes" type="radio" name="is-read" value="Yes" checked>
+              <label for="yes">Yes</label>
 
-            <input id="no" type="radio" name="is-read" value="No">
-            <label for="no">No</label>
-          </fieldset>
-          <button type="submit">Submit</button>
-        </form>
+              <input id="no" type="radio" name="is-read" value="No">
+              <label for="no">No</label>
+            </fieldset>
+            <button type="submit">Submit</button>
+            <button id="close-button">Close</button>
+          </form>
 
-      </dialog>
-      <button id="show-button">NEW BOOK</button>
-
-
+        </dialog>
+        <button id="show-button">NEW BOOK</button>
+      </div>
     </div>
-  </div>
-
-</body>
+  </body>
 </html>

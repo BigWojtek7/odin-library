@@ -66,6 +66,7 @@ function displayBookInTable() {
 function getUserInput(){
   const dialog = document.querySelector("dialog");
   const showButton = document.getElementById("show-button");
+  const closeButton = document.getElementById("close-button")
 
   showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -84,6 +85,8 @@ function getUserInput(){
     form.reset();
     addBookToLibrary(title, author, pages, isRead)
   });
+
+  closeButton.addEventListener("click", () => dialog.close());
 }
 
 
