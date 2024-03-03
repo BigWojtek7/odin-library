@@ -9,12 +9,16 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
+Book.prototype.changeReadState = function () {
+  this.isRead = this.isRead === "Yes" ? "No" : "Yes";
+}
+
 
 function addBookToLibrary(title, author, pages, isRead) {
   const book = new Book (title, author, pages, isRead);
 
   myLibrary.push(book);
-  displayBookInTable()
+  displayBookInTable();
 }
 
 
@@ -47,7 +51,6 @@ function displayBookInTable() {
   deleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault;
-      console.log("wojtek1", button.value)
       deleteBook(button.value)
     });
   });
@@ -57,7 +60,6 @@ function displayBookInTable() {
   changeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault;
-      console.log("wojtek1", button.value)
       changeBookStatus(button.value);
     });
   });
@@ -80,10 +82,9 @@ function getUserInput(){
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const isRead = document.querySelector('input[name="is-read"]:checked').value;
-    // console.log(title, author, pages, isRead)
     dialog.close();
     form.reset();
-    addBookToLibrary(title, author, pages, isRead)
+    addBookToLibrary(title, author, pages, isRead);
   });
 
   closeButton.addEventListener("click", () => dialog.close());
@@ -91,19 +92,13 @@ function getUserInput(){
 
 
 function deleteBook(arrayIndex) {
-  console.log("wojtek" ,arrayIndex);
   myLibrary.splice(arrayIndex, 1);
-  console.log(myLibrary)
   displayBookInTable();
 }
 
 
 function changeBookStatus(arrayIndex) {
-
-  let bookStatus = myLibrary[arrayIndex].isRead;
-  bookStatus === "Yes" ? bookStatus = "No" : bookStatus ="Yes";
-  myLibrary[arrayIndex].isRead = bookStatus;
-
-  console.log(typeof myLibrary[arrayIndex].isRead);
+  myLibrary[arrayIndex].changeReadState();
   displayBookInTable();
 }
+
