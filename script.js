@@ -13,15 +13,12 @@ Book.prototype.changeReadState = function () {
   this.isRead = this.isRead === "Yes" ? "No" : "Yes";
 }
 
-
 function addBookToLibrary(title, author, pages, isRead) {
   const book = new Book (title, author, pages, isRead);
 
   myLibrary.push(book);
   displayBookInTable();
 }
-
-
 
 function displayBookInTable() {
   const table = document.querySelector(".table-rows");
@@ -90,12 +87,10 @@ function getUserInput(){
   closeButton.addEventListener("click", () => dialog.close());
 }
 
-
 function deleteBook(arrayIndex) {
   myLibrary.splice(arrayIndex, 1);
   displayBookInTable();
 }
-
 
 function changeBookStatus(arrayIndex) {
   myLibrary[arrayIndex].changeReadState();
