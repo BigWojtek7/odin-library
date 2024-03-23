@@ -31,13 +31,13 @@
         <dialog>
           <form id="get-book" method="dialog">
             <label for="title">Title:</label>
-            <input id="title" type="text" name="title" required />
+            <input id="title" type="text" name="title" minlength="3" required />
 
             <label for="author">Author:</label>
-            <input id="author" type="text" name="author" required />
+            <input id="author" type="text" name="author" minlength="3" required />
 
             <label for="pages">Number of Pages:</label>
-            <input id="pages" type="text" name="pages" required />
+            <input id="pages" type="number" name="pages" required />
 
             <fieldset>
               <legend>Is the book read?</legend>
