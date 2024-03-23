@@ -1,22 +1,21 @@
-
 const myLibrary = [];
-getUserInput()
+getUserInput();
 
 class Book {
-  constructor(title, author, pages, isRead){
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
   }
 }
 
 Book.prototype.changeReadState = function () {
   this.isRead = this.isRead === "Yes" ? "No" : "Yes";
-}
+};
 
 function addBookToLibrary(title, author, pages, isRead) {
-  const book = new Book (title, author, pages, isRead);
+  const book = new Book(title, author, pages, isRead);
 
   myLibrary.push(book);
   displayBookInTable();
@@ -24,10 +23,10 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 function displayBookInTable() {
   const table = document.querySelector(".table-rows");
-  const clearTable = document.querySelector(".table-rows")
+  const clearTable = document.querySelector(".table-rows");
 
-  clearTable.innerHTML="";
-  myLibrary.forEach(element => {
+  clearTable.innerHTML = "";
+  myLibrary.forEach((element) => {
     const row = table.insertRow(-1);
 
     const cell1 = row.insertCell(0);
@@ -42,19 +41,19 @@ function displayBookInTable() {
     cell2.innerHTML = `${element.author}`;
     cell3.innerHTML = `${element.pages}`;
     cell4.innerHTML = `${element.isRead} <button class="change-button" value="${elementIndex}">Change</button>`;
-    cell5.innerHTML =  `<button class="delete-button" value="${elementIndex}">Remove</button>`;
+    cell5.innerHTML = `<button class="delete-button" value="${elementIndex}">Remove</button>`;
   });
 
-  const deleteButtons = document.querySelectorAll(".delete-button")
+  const deleteButtons = document.querySelectorAll(".delete-button");
 
   deleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault;
-      deleteBook(button.value)
+      deleteBook(button.value);
     });
   });
 
-  const changeButtons = document.querySelectorAll(".change-button")
+  const changeButtons = document.querySelectorAll(".change-button");
 
   changeButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -64,10 +63,10 @@ function displayBookInTable() {
   });
 }
 
-function getUserInput(){
+function getUserInput() {
   const dialog = document.querySelector("dialog");
   const showButton = document.getElementById("show-button");
-  const closeButton = document.getElementById("close-button")
+  const closeButton = document.getElementById("close-button");
 
   showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -80,7 +79,9 @@ function getUserInput(){
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const isRead = document.querySelector('input[name="is-read"]:checked').value;
+    const isRead = document.querySelector(
+      'input[name="is-read"]:checked'
+    ).value;
     dialog.close();
     form.reset();
     addBookToLibrary(title, author, pages, isRead);
@@ -98,4 +99,3 @@ function changeBookStatus(arrayIndex) {
   myLibrary[arrayIndex].changeReadState();
   displayBookInTable();
 }
-
