@@ -20,24 +20,19 @@ dialog {
   background: #f6f6f6;
 }
 
-label {
-  font-weight: bold;
-}
-#get-book {
-  display: grid;
-  gap: 10px;
-}
 #get-book input {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 3px;
   width: 200px;
   padding: 7px;
-  font-size: 14px;
+  font-size: 1em;
+  display: block;
 }
 
 #get-book input[type="radio"] {
   width: 30px;
+  display: inline-block;
 }
 
 button {
@@ -50,6 +45,7 @@ button {
   border: none;
   border-radius: 5px;
 
+  margin: 15px 0;
   padding: 10px 30px;
   cursor: pointer;
 }
@@ -77,4 +73,20 @@ td {
 
 caption {
   padding: 10px;
+}
+
+.error {
+  width: 300px;
+  padding: 0;
+  font-size: 80%;
+  color: rgb(255, 30, 30);
+  /* background-color: #900; */
+  border-radius: 0 0 5px 5px;
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+}
+
+section p {
+  margin: .2em
 }
