@@ -33,24 +33,24 @@
             <h1>Add books</h1>
             <p>
               Required forms are followed by:
-              <strong><span aria-label="required">*</span></strong>.
+              <strong><span aria-label="required">*</span></strong
+              >.
             </p>
             <section>
-
               <p>
                 <label for="title">
                   <span>Title:</span>
                   <strong><span aria-label="required">*</span></strong>
                 </label>
-                <input type="text" id="title" name="title">
-                <span class="error" aria-live="polite">Funny erroro display</span>
+                <input type="text" id="title" name="title" />
+                <span class="error" aria-live="polite"></span>
               </p>
               <p>
                 <label for="author">
                   <span>Author:</span>
                   <strong><span aria-label="required">*</span></strong>
                 </label>
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" name="author" />
                 <span class="error" aria-live="polite"></span>
               </p>
               <p>
@@ -58,24 +58,39 @@
                   <span>Pages:</span>
                   <strong><span aria-label="required">*</span></strong>
                 </label>
-                <input type="text" id="pages" name="pages">
+                <input type="text" id="pages" name="pages" />
                 <span class="error" aria-live="polite"></span>
               </p>
             </section>
             <section>
-              <fieldset>
+              <fieldset data-type="ignore">
                 <legend>Is the book read?</legend>
 
-                <input id="yes" type="radio" name="is-read" value="Yes" checked />
+                <input
+                  data-type="ignore"
+                  id="yes"
+                  type="radio"
+                  name="is-read"
+                  value="Yes"
+                  checked
+                />
                 <label for="yes">Yes</label>
 
-                <input id="no" type="radio" name="is-read" value="No" />
+                <input
+                  data-type="ignore"
+                  id="no"
+                  type="radio"
+                  name="is-read"
+                  value="No"
+                />
                 <label for="no">No</label>
               </fieldset>
             </section>
             <section>
-              <button type="submit">Submit</button>
-              <button id="close-button">Close</button>
+              <button type="submit" data-type="ignore">Submit</button>
+              <button type="button" id="close-button" data-type="ignore">
+                Close
+              </button>
             </section>
           </form>
         </dialog>

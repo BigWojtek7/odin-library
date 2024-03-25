@@ -76,15 +76,41 @@ function getUserInput() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const pages = document.getElementById("pages").value;
-    const isRead = document.querySelector(
-      'input[name="is-read"]:checked'
-    ).value;
-    dialog.close();
-    form.reset();
-    addBookToLibrary(title, author, pages, isRead);
+
+    const inputArr = [];
+
+    [...e.currentTarget.elements]
+      .filter(
+        (el) =>
+          el.dataset.type !== "ignore" ||
+          (el.type === "radio" && el.checked === true)
+      )
+      .forEach((item) => {
+        if (item.type !== "radio") {
+          const error = item.parentElement.querySelector(".error");
+          error.textContent = "";
+          if (item.value === "") {
+            error.textContent = `You need to enter ${item.name}.`;
+          }
+        }
+
+        inputArr.push({ name: item.name, value: item.value });
+      });
+
+    if (
+      inputArr[0].value !== "" &&
+      inputArr[1].value !== "" &&
+      inputArr[2].value !== ""
+    ) {
+      dialog.close();
+      form.reset();
+      addBookToLibrary(
+        inputArr[0].value,
+        inputArr[1].value,
+        inputArr[2].value,
+        inputArr[3].value
+      );
+    }
   });
 
   closeButton.addEventListener("click", () => dialog.close());

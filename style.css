@@ -80,7 +80,6 @@ caption {
   padding: 0;
   font-size: 80%;
   color: rgb(255, 30, 30);
-  /* background-color: #900; */
   border-radius: 0 0 5px 5px;
   display: block;
   box-sizing: border-box;
@@ -88,5 +87,5 @@ caption {
 }
 
 section p {
-  margin: .2em
+  margin: 0.2em;
 }
